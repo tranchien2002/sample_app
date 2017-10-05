@@ -9,6 +9,28 @@
       <%= f.label :name %>
       <%= f.text_field :name %>
 
+      <%= f.label :phone_number %>
+      <%= f.text_field :phone_number %>
+
+      <%= f.label :birthday %>
+      <%= f.date_field :birthday %>
+
+ <!--      <%= f.label :gender, class: "radio_inline" %>
+      <%= f.radio_button(:gender , "Male")  %>
+      <%= f.radio_button(:gender, "Female") %> -->
+
+      <p style="font-weight: bold;">Gender</p>
+      <label for="user_gender" class="radio_inline">
+         <input type="radio" name="user[gender]" value="Male">Male
+      </label>
+      <label for="user_gender" class="radio_inline">
+        <input type="radio" name="user[gender]" value="Female">Female
+      </label>
+      <br>
+
+      <%= f.label :address %>
+      <%= f.text_field :address %>
+
       <%= f.label :email %>
       <%= f.email_field :email %>
 

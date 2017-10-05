@@ -19,8 +19,10 @@
               </li>
             </ul>
           </li>
+          <li> <%= link_to "Hello " + @user.name %></li>
         <% else %>
           <li><%= link_to "Log in", login_path %></li>
+          <li> <%= link_to "Hello" %></li>
         <% end %>
       </ul>
     </nav>

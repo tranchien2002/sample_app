@@ -1,0 +1,50 @@
+<% provide(:title, "Edit") %>
+<h1>Update Profile</h1>
+  <div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@user) do |f| %>
+     <%= render 'shared/error_messages' %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+
+      <%= f.label :phone_number %>
+      <%= f.text_field :phone_number %>
+
+      <%= f.label :birthday %>
+      <%= f.date_field :birthday %>
+
+ <!--      <%= f.label :gender, class: "radio_inline" %>
+      <%= f.radio_button(:gender , "Male")  %>
+      <%= f.radio_button(:gender, "Female") %> -->
+
+      <p style="font-weight: bold;">Gender</p>
+      <label for="user_gender" class="radio_inline">
+         <input type="radio" name="user[gender]" value="Male">Male
+      </label>
+      <label for="user_gender" class="radio_inline">
+        <input type="radio" name="user[gender]" value="Female">Female
+      </label>
+      <br>
+
+      <%= f.label :address %>
+      <%= f.text_field :address %>
+
+      <%= f.label :email %>
+      <%= f.email_field :email %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+
+      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.password_field :password_confirmation %>
+
+      <%= f.submit "Save changes", class: "btn btn-primary" %>
+    <% end %>
+
+    <div class="gravatar_edit">
+      <%= gravatar_for @user %>
+      <a href="http://gravatar.com/emails" target="_blank">change</a>
+    </div>
+  </div>
+</div>

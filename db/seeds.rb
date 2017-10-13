@@ -13,7 +13,10 @@ User.create!(name:  "TMChien",
              address: "thanh xuan",
              phone_number: "0111111",
              birthday: "10-10-1997",
-             admin: true)
+             admin: true,
+             activated: true,
+             activated_at: Time.zone.now)
+
 
 99.times do |n|
   name  = Faker::Name.name
@@ -31,5 +34,8 @@ User.create!(name:  "TMChien",
                gender: gender,
                address: address,
                phone_number: phone_number,
-               birthday: birthday)
+               birthday: birthday,
+               activated: true,
+             activated_at: Time.zone.now)
+
 end

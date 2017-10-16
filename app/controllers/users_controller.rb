@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   before_action :admin_user, only: [:destroy, :index]
   def show
     @user = User.find(params[:id])
+    @microposts = @user.microposts.paginate(page: params[:page],per_page: 10)
   end
 
   def new
@@ -19,9 +20,9 @@ class UsersController < ApplicationController
     if @user.save
       # flash.now[:success] = "Welcome to the Sample App!"
       # redirect_to @user
-      UserMailer.account_activation(@user).deliver_now
+      @user.send_activation_email
       flash[:info] = "Please check your email to activate your account."
-      redirect_to root_url
+      redirect_to login_path
     else
       render 'new'
     end

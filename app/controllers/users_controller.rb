@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @microposts = @user.microposts.paginate(page: params[:page],per_page: 10)
+    store_location
   end
 
   def new
@@ -52,7 +53,7 @@ class UsersController < ApplicationController
 
     def user_params
       params.require(:user).permit(:name, :email, :password,
-                                   :password_confirmation, :gender, :address, :phone_number, :birthday)
+                                   :password_confirmation)
     end
 
     def logged_in_user

@@ -1,0 +1,11 @@
+<% provide(:title,"All posts") %>
+
+<h1> All posts</h1>
+  <div class="col-md-8">
+    <%= will_paginate @microposts %>
+    <ol class="microposts">
+      <%= render @microposts %>
+    </ol>
+    <%= will_paginate @microposts %>
+  </div>
+

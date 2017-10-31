@@ -9,6 +9,10 @@
     <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
   </span>
 <% end %>
+<!-- <div class="field">
+    <textarea placeholder="Compose new micropost..." name="micropost[content]" id="micropost_content"></textarea>
+</div>
+<input type="submit" name="commit" value="Post" class="btn btn-primary"> -->
 <script type="text/javascript">
   $('#micropost_picture').bind('change', function() {
     var size_in_megabytes = this.files[0].size/1024/1024;
@@ -16,4 +20,27 @@
       alert('Maximum file size is 5MB. Please choose a smaller file.');
     }
   });
+</script>
+<script type="text/javascript">
+  $(".btn-primary").on("click", function(e){
+      console.log("minh fat");
+      var content = $("#micropost_content").val();
+      e.preventDefault();
+      if(content){
+          $.ajax({
+            url: "/microposts",
+            type: "post",
+            dataType: "json",
+            data: {micropost: {content: content}},
+          })
+          .success(function(res){
+            // var node = document.createElement("LI");
+            console.log(res);
+            $(".col-md-8 .microposts").append(res);
+
+          })
+
+      }
+
+  })
 </script>
